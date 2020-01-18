@@ -9,14 +9,39 @@ body {
     justify-content: center;
   }
 
+.card {
+    width: 70%;
+    background-color: rgb(182, 179, 172);
+}
+
 #startQuiz {
     background-color: rgb(255, 143, 143);
     font-family: 'Montserrat', sans-serif;
     width: 50%;
     height: 100px;
     font-size: 50px;
-    margin: 0;
     border: none;
     border-radius: 10px;
 }
+
+.time {
+    font-size: 20px;
+}
+
+h1 {
+    font-size: 100px;
+    margin-bottom: 40px;
+}
+
+
+#optionA, #optionB, #optionC, #optionD {
+    width: 100px;
+    height: 50px;
+    background-color: rgb(213, 213, 255);
+    border: none;
+    border-radius: 10px;
+    outline: none;
+}
+
+
 
