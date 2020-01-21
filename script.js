@@ -1,7 +1,9 @@
-const time = document.querySelector(".time");
+const timer = document.querySelector(".timer");
 
 let secondsLeft = 5;
 let showResults = "";
+let userChoice = "";
+let currentQuestion = "";
 
 
 
@@ -15,30 +17,31 @@ function setTime() {
 
   var timerInterval = setInterval(function () {
     secondsLeft--;
-    time.textContent = `Time Remaining: ${secondsLeft} seconds`;
+    timer.textContent = `Time Remaining: ${secondsLeft} seconds`;
 
     if (secondsLeft === 0) {
       clearInterval(timerInterval);
-      time.textContent = "Time has ended";
+      timer.textContent = "Time has ended";
       // Add display of score here
     }
 
   }, 1000);
 };
 
+
+
+
+
 function quizStart() {
-
-
 
 };
 
-
-
 function choiceA() {
-
-
   return questions[0].choices[0];
 }
+
+
+
 
 const quizQuestion = document.querySelector("#quizQuestion");
 const optionA = document.querySelector("#optionA");
@@ -62,7 +65,7 @@ optionD.textContent = questions[0].choices[3];
 
 // Adding time to correct answer, subtract for wrong
 // Change first part to reflect user choice
-if (questions[0].choices[2] === questions[0].answer) {
+if (userChoice === questions[currentQuestion].answer) {
   secondsLeft = secondsLeft + 5;
   console.log("Correct");
 
