@@ -3,7 +3,7 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-#center {
+.center {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -34,7 +34,7 @@ h1 {
 }
 
 
-#optionA, #optionB, #optionC, #optionD {
+.answerBtn {
   width: 100px;
   height: 50px;
   background-color: rgb(213, 213, 255);
