@@ -7,8 +7,9 @@ let score = 0;
 
 // Start Quiz button, on click runs setTime function
 const startQuizBtn = document.querySelector("#startQuiz");
-startQuizBtn.addEventListener("click", setTime );
+startQuizBtn.addEventListener("click", setTime);
 startQuizBtn.addEventListener("click", quizStart);
+
 // Starts time countdown
 function setTime() {
 
@@ -22,10 +23,11 @@ function setTime() {
     }
   }, 1000);
 };
-function quizStart() {
 
+function quizStart() {
   displayQuestion();
 };
+
 function displayQuestion() {
 
   let questList = questions[currentQuestion].choices.map((question)=>{
