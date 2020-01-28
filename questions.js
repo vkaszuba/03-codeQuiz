@@ -15,9 +15,9 @@ const questions = [
     answer: "Ron"
   },
   {
-    title: "What type of creature is Fluffy?",
-    choices: ["Dragon", "Cat", "Three-Headed Dog", "Owl"],
-    answer: "Three-Headed Dog"
+    title: "What type of creature is Crookshanks?",
+    choices: ["Dragon", "Cat", "Dog", "Owl"],
+    answer: "Cat"
   },
   {
     title: "Who killed Dumbledore?",
