@@ -1,19 +1,16 @@
-
 body {
   font-family: 'Montserrat', sans-serif;
 }
-
 .center {
   position: relative;
   text-align: center;
+  margin: 0 auto;
   }
-
 .card {
   width: 70%;
   background-color: rgb(182, 179, 172);
 }
-
-#startQuiz {
+#startBtn {
   background-color: rgb(255, 143, 143);
   font-family: 'Montserrat', sans-serif;
   width: 50%;
@@ -22,20 +19,31 @@ body {
   border: none;
   border-radius: 10px;
 }
-
 #timer {
   font-size: 20px;
   font-size: 20px;
   margin-bottom: 40px;
 }
-
 .answerBtn {
   width: 100px;
   height: 50px;
-  background-color: rgb(213, 213, 255);
+  background-color: rgb(255, 181, 70);
   border-radius: 10px;
   outline: none;
 }
-
-
-
+#highScores {
+  position: fixed;
+  top: 0;
+  height: 50px;
+  width: 100px;
+  z-index: 11;
+}
+#highScores.open {
+  background-color: rgb(255, 208, 208);
+  height: 400px;
+  width: 400px;
+  z-index: 10;
+}
+li {
+  padding-top: 40px;
+}
