@@ -1,22 +1,16 @@
 const timer = document.querySelector("#timer");
+const startQuizBtn = document.querySelector("#startQuiz");
 const quiz = document.querySelector('#quiz');
-const highScores = document.querySelector('#highScores');
+let scoreBtn = document.querySelector("#highScores");
 const retry = document.querySelector('#retry');
 
-let secondsLeft = 5;
+let secondsLeft = 20;
 let currentQuestion = 0;
 let score = 0;
 let scoresOpen = false;
 
-// Start Quiz button, on click runs setTime function
-const startQuizBtn = document.querySelector("#startQuiz");
 startQuizBtn.addEventListener("click", quizStart);
-
-let scoreToggleBtn = document.createElement("button");
-
-scoreToggleBtn.innerText = "High Scores";
-scoreToggleBtn.addEventListener("click", toggleScoreDisplay);
-highScores.appendChild(scoreToggleBtn);
+scoreBtn.addEventListener("click", toggleScoreDisplay);
 
 
 function toggleScoreDisplay() {
@@ -42,12 +36,31 @@ function toggleScoreDisplay() {
 	scoresOpen = !scoresOpen;
 }
 
+// Grabbing stored scores from Local Storage
+function handleScoreSave(event) {
+	event.preventDefault();
+	let highScores = localStorage.getItem("highScores");
+	if (highScores) {
+		let newScores = JSON.parse(highScores);
+		newScores.push({ initial: event.target[0].value, score: score });
+		localStorage.setItem("highScores", JSON.stringify(newScores));
+	} else {
+		let newScores = [];
+		newScores.push({ initial: event.target[0].value, score: score });
+		localStorage.setItem("highScores", JSON.stringify(newScores));
+	}
+}
+
+
 // Starts time countdown
 function setTime() {
 	var timerInterval = setInterval(function () {
 		secondsLeft--;
-		timer.innerHTML = `<div>Time Remaining: ${secondsLeft} seconds <br>
-		${score} of ${questions.length}</div>`;
+		timer.innerHTML = `
+		<div>Time Remaining: ${secondsLeft} seconds
+		<br>
+		${score} of ${questions.length}</div>
+		`;
 		if (secondsLeft <= 0) {
 			clearInterval(timerInterval);
 			return endGame();
@@ -88,32 +101,19 @@ function answerQuestion(selection) {
 // Displays your final score
 function endGame() {
 	quiz.innerHTML = `
-    <p>You got ${score} of ${questions.length}</p>
+		<p>You got ${score} of ${questions.length}</p>
+		<br><br>
     <form onsubmit="handleScoreSave(event)">
       <input type="text" placeholder="Enter Initials"></input>
       <input type="submit" value="Save Score"></input>
 		</form>
   `;
 	secondsLeft = 0;
-	timer.innerHTML = `<div>Time has ended <br>
-	<button id="retry" onclick="restartGame()">Retry?</button></div>`;
+	timer.innerHTML = `
+	<button id="retry" onclick="restartGame()">Retry?</button>
+`;
 }
 
-
-// Grabbing stored scores from Local Storage
-function handleScoreSave(event) {
-	event.preventDefault();
-	let highScores = localStorage.getItem("highScores");
-	if (highScores) {
-		let newScores = JSON.parse(highScores);
-		newScores.push({ initial: event.target[0].value, score: score });
-		localStorage.setItem("highScores", JSON.stringify(newScores));
-	} else {
-		let newScores = [];
-		newScores.push({ initial: event.target[0].value, score: score });
-		localStorage.setItem("highScores", JSON.stringify(newScores));
-	}
-}
 
 function restartGame() {
 	secondsLeft = 5;
