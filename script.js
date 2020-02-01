@@ -15,6 +15,7 @@ startQuizBtn.addEventListener("click", quizStart);
 scoreBtn.addEventListener("click", toggleScoreDisplay);
 clearScoreBtn.addEventListener("click", clearScores);
 
+
 // Runs and logs player scores
 function toggleScoreDisplay() {
 	if (scoresOpen) {
