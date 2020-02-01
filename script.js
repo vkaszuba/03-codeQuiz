@@ -1,16 +1,19 @@
 const timer = document.querySelector("#timer");
 const startQuizBtn = document.querySelector("#startQuiz");
 const quiz = document.querySelector('#quiz');
-let scoreBtn = document.querySelector("#highScores");
+const scoreBtn = document.querySelector("#highScores");
+const clearScoreBtn = document.querySelector("#clearScores");
 const retry = document.querySelector('#retry');
 
 let secondsLeft = 30;
 let currentQuestion = 0;
 let score = 0;
+let scoreItems = 0;
 let scoresOpen = false;
 
 startQuizBtn.addEventListener("click", quizStart);
 scoreBtn.addEventListener("click", toggleScoreDisplay);
+clearScoreBtn.addEventListener("click", clearScores);
 
 // Runs and logs player scores
 function toggleScoreDisplay() {
@@ -34,7 +37,7 @@ function toggleScoreDisplay() {
 		});
 	}
 	scoresOpen = !scoresOpen;
-}
+};
 
 // Grabbing stored scores from Local Storage
 function handleScoreSave(event) {
@@ -49,7 +52,7 @@ function handleScoreSave(event) {
 		newScores.push({ initial: event.target[0].value, score: score });
 		localStorage.setItem("highScores", JSON.stringify(newScores));
 	}
-}
+};
 
 // Starts time countdown
 function setTime() {
@@ -77,9 +80,9 @@ function quizStart() {
 function displayQuestion() {
 	let questList = questions[currentQuestion].choices.map((question) => {
 		return `<button class="answerBtn" onclick="answerQuestion('${question}')">${question}</button>`;
-	})
+	});
 	quiz.innerHTML = `${questions[currentQuestion].title}<br>${questList.join("")}`;
-}
+};
 
 // Adds or subtracts time depending on answer
 // When all questions are answered, time ends
@@ -95,7 +98,7 @@ function answerQuestion(selection) {
 		return endGame();
 	}
 	displayQuestion();
-}
+};
 
 // Displays your final score and allows a High Score input area
 // Retry button also appears
@@ -112,7 +115,7 @@ function endGame() {
 	timer.innerHTML = `
 	<button id="retry" onclick="restartGame()">Retry?</button>
 `;
-}
+};
 
 // Function to run the Retry button, this restarts the quiz
 function restartGame() {
@@ -121,4 +124,9 @@ function restartGame() {
 	score = 0;
 	scoresOpen = false;
 	quizStart();
-}
+};
+
+//Clear Scores button function
+function clearScores() {
+	localStorage.clear();
+};

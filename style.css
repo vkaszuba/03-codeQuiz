@@ -17,15 +17,28 @@ body {
   width: 50%;
   height: 100px;
   font-size: 50px;
-  margin-top: 100px;
+  margin-top: 0;
   margin-bottom: 50px;
   outline: none;
   border: none;
   border-radius: 10px;
 }
-p, #quiz {
+#quiz {
   font-size: 30px;
   line-height: 45px;
+  width: 50%;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 150px;
+}
+p {
+  font-size: 30px;
+  line-height: 45px;
+  width: 50%;
+  position: relative;
+  text-align: center;
+  margin: 0 auto;
 }
 #timer {
   font-size: 30px;
@@ -69,6 +82,22 @@ p, #quiz {
 }
 ul {
   margin: 20px;
+}
+#clearScores {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 11;
+  padding: 10px;
+  margin: 10px;
+  color: white;
+  width: 250px;
+  background-color: rgb(141, 141, 141);
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 30px;
 }
 #retry {
   padding: 10px;
