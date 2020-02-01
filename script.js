@@ -4,7 +4,7 @@ const quiz = document.querySelector('#quiz');
 let scoreBtn = document.querySelector("#highScores");
 const retry = document.querySelector('#retry');
 
-let secondsLeft = 20;
+let secondsLeft = 30;
 let currentQuestion = 0;
 let score = 0;
 let scoresOpen = false;
@@ -12,7 +12,7 @@ let scoresOpen = false;
 startQuizBtn.addEventListener("click", quizStart);
 scoreBtn.addEventListener("click", toggleScoreDisplay);
 
-
+// Runs and logs player scores
 function toggleScoreDisplay() {
 	if (scoresOpen) {
 		highScores.classList.remove("open");
@@ -50,7 +50,6 @@ function handleScoreSave(event) {
 		localStorage.setItem("highScores", JSON.stringify(newScores));
 	}
 }
-
 
 // Starts time countdown
 function setTime() {
@@ -98,7 +97,8 @@ function answerQuestion(selection) {
 	displayQuestion();
 }
 
-// Displays your final score
+// Displays your final score and allows a High Score input area
+// Retry button also appears
 function endGame() {
 	quiz.innerHTML = `
 		<p>You got ${score} of ${questions.length}</p>
@@ -114,9 +114,9 @@ function endGame() {
 `;
 }
 
-
+// Function to run the Retry button, this restarts the quiz
 function restartGame() {
-	secondsLeft = 5;
+	secondsLeft = 30;
 	currentQuestion = 0;
 	score = 0;
 	scoresOpen = false;
