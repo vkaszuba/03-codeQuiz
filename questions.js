@@ -25,7 +25,7 @@ const questions = [
     answer: "Snape"
   },
   {
-    title: "Who is Bill's daughter??",
+    title: "Who is Bill Weasley's daughter??",
     choices: ["Hermione", "Luna", "Victoire", "Minerva"],
     answer: "Victoire"
   },
