@@ -12,7 +12,8 @@ body {
   background-color: rgb(182, 179, 172);
 }
 #startBtn {
-  background-color: rgb(255, 143, 143);
+  background-color: rgb(151, 15, 15);
+  color: white;
   font-family: 'Montserrat', sans-serif;
   width: 50%;
   height: 100px;
@@ -20,7 +21,6 @@ body {
   margin-top: 0;
   margin-bottom: 50px;
   outline: none;
-  border: none;
   border-radius: 10px;
 }
 #quiz {
@@ -52,7 +52,6 @@ p {
   background-color: rgb(255, 181, 70);
   border-radius: 10px;
   outline: none;
-  border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
 }
@@ -66,7 +65,6 @@ p {
   width: 250px;
   background-color: rgb(34, 34, 34);
   border-radius: 10px;
-  border: none;
   outline: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
@@ -94,7 +92,6 @@ ul {
   width: 250px;
   background-color: rgb(141, 141, 141);
   border-radius: 10px;
-  border: none;
   outline: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
@@ -107,7 +104,6 @@ ul {
   background-color: rgb(141, 0, 0);
   border-radius: 10px;
   outline: none;
-  border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 30px;
 }
@@ -117,7 +113,6 @@ input {
   background-color: rgb(204, 204, 204);
   border-radius: 10px;
   outline: none;
-  border: none;
   font-family: 'Montserrat', sans-serif;
   font-size: 25px;
 }

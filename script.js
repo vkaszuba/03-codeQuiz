@@ -10,11 +10,12 @@ let currentQuestion = 0;
 let score = 0;
 let scoreItems = 0;
 let scoresOpen = false;
+let newScores = '';
 
 startQuizBtn.addEventListener("click", quizStart);
 scoreBtn.addEventListener("click", toggleScoreDisplay);
 clearScoreBtn.addEventListener("click", clearScores);
-
+localStorage.setItem("highScores", JSON.stringify([]));
 
 // Runs and logs player scores
 function toggleScoreDisplay() {
@@ -129,5 +130,5 @@ function restartGame() {
 
 //Clear Scores button function
 function clearScores() {
-	localStorage.clear();
+	localStorage.setItem("highScores", JSON.stringify([]));
 };
